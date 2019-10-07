@@ -8,25 +8,32 @@
 	<link rel="stylesheet" text="css" href="index.css">
 </head>
 <body>
-	<div id="start_page">
-		<h1 id="title">IT用語Q&A</h1>
-		<button type="button" class="start_btn" onclick="start()">start</button>
-	</div>
 	<div class="header">
-				<h1>IT用語Q&A</h1>
+				<h1>ITQ&A</h1>
 			</div>
 		<main>
 			<div class="inner_box">
-				<h2 id="q_number">Q.1</h2>
-				<div id="question"></div>
-				<h2 id="a_number">A.1</h2>
-				<div id="answer"></div>
-				<div id="buttons" clss="clearfix">	
-					<button type="button" class="button" onclick="answer()">答え</button>	
+				
+				<div class="box_q">
+					<h2 id="q_number">Q.1</h2>
+					<div id="question"></div>
 				</div>
+				<div class="box_a">
+					<h2 id="a_number">A.1</h2>
+					<div id="answer"></div>
+				</div>
+					<div id="buttons" clss="clearfix">	
+						<button type="button" class="button" onclick="answer()">ANSWER</button>	
+					</div>
 			</div>
 		</main>
-		<footer id="footer"><div id="inner_footer"></div></footer>
+		<footer id="footer">
+				<div id="inner_footer" class="clearfix">
+						<button type="button" class="back_button" onclick="back()">BACK</button>
+						<button type="button" class="back_button" onclick="history.back()">HOME</button>
+						<button type="button" class="back_button" onclick="window.location.reload();">RESTART</button>
+			　　　</div>
+		</footer>
 	<script>
 		var quiz = new Array();
 		quiz[0]=["ITの正称とIT革命の意味","Information Technology(情報技術)、IT革命とは技術革新にともなう経済構造の変化を象徴する言葉"];
@@ -65,7 +72,6 @@
 
 
 
-
 		var count = 0;
 		var q_count = 2;
 		var qu = document.getElementById("question");
@@ -80,7 +86,6 @@
 
 		function start(){
 			start_page.classList.add("an");
-
 		}
 
 		show();
@@ -90,8 +95,8 @@
 		}
 		function answer(){
 			an.innerHTML = quiz[count][1];
-			buttons.innerHTML = '<button type="button" class="button2" onclick="next()">次へ</button>';
-			footer.innerHTML = '<button type="button" class="back_button" onclick="next()">戻る</button>';
+			buttons.innerHTML = '<button type="button" class="button2" onclick="next()">NEXT</button>';
+			/*footer.innerHTML = '<button type="button" class="back_button" onclick="next()">戻る</button>';*/
 		}
 
 		function next(){
@@ -101,7 +106,7 @@
 			an.innerHTML = "";
 			count++;
 			show();
-			buttons.innerHTML = '<button type="button" class="button" onclick="answer()">答え</button>';
+			buttons.innerHTML = '<button type="button" class="button" onclick="answer()">ANSWER</button>';
 		}
 		function back(){
 			count--;
@@ -109,8 +114,6 @@
 			an.innerHTML = "";
 			buttons.innerHTML = '<button type="button" class="button" onclick="answer()">答え</button>';
 		}
-
-		
 		
 	</script>
 
