@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>plactice</title>
+	<link rel="stylesheet" text="css" href="reset.css">
+	<link rel="stylesheet" text="css" href="index.css">
+</head>
+<body>
+	<div id="start_page">
+		<h1 id="title">IT用語Q&A</h1>
+		<button type="button" class="start_btn" onclick="start()">start</button>
+	</div>
+	<div class="header">
+				<h1>IT用語Q&A</h1>
+			</div>
+		<main>
+			<div class="inner_box">
+				<h2 id="q_number">Q.1</h2>
+				<div id="question"></div>
+				<h2 id="a_number">A.1</h2>
+				<div id="answer"></div>
+				<div id="buttons" clss="clearfix">	
+					<button type="button" class="button" onclick="answer()">答え</button>	
+				</div>
+			</div>
+		</main>
+		<footer id="footer"><div id="inner_footer"></div></footer>
+	<script>
+		var quiz = new Array();
+		quiz[0]=["ITの正称とIT革命の意味","Information Technology(情報技術)、IT革命とは技術革新にともなう経済構造の変化を象徴する言葉"];
+		quiz[1]=["OSの正称と役割","Operating Syst,em、コンピューター全体を管理、制御し、人が使えるようにする役割があります。"];
+		quiz[2]=["Unixとは","一番古いOS。MacOSもLinuxもUnixを参考に作られている"];
+		quiz[3]=["MySQLの説明","オープンソースで公開されていて世界的に活用されているデータベースアプリケーション。"];
+		quiz[4]=["オープンソースとは","ソフトウェアのソースコードを無償で公開し、誰でも自由に改良・再配布ができるようにしたソフトウェアのことです。"]
+		quiz[5]=["PHP正称と役割","Hypertext Preprocessor オープンソースの汎用スクリプト言語。サーバーサイド側でコードを実行"]
+		quiz[6]=["PHPとJavaScriptの違い","JSはクライアント側（ブラウザ）で処理を実行PHPはサーバーサイドで実行。クライアントサイドはその結果のみを受け取るため、どのようなコードで導き出された結果なのか見ることができません。"]
+		quiz[7]=["Apacheとは","世界中でもっとも多く使われているWebサーバソフトウェアであり、大規模な商用サイトから自宅サーバまで幅広く利用されている"]
+		quiz[8]=["SEとは","システムエンジニア。コンピューターシステムやネットワーク・データベース等の情報システムにおいて	企画、設計、開発、評価、プロジェクトマネジメント、コンサル、工事、保守、運用を行う。"]
+		quiz[9]=["PGとは","プログラマー。SEの作成した仕様書を元に、システムプログラムのコードを書く職種です。コーディングしたプログラムが予定どおりに動くがどうかのテスト作業は、SEと共に行うことが多い。"]
+		quiz[10]=["ファイルとは","データを扱うときの基本単位。全てのデータはファイル単位で管理可能。書き込み、削除、コピー、移動などの操作をする。"]
+		quiz[11]=["ルートディレクトリとは","ルートディレクトリは、ファイル階層における最初または最上位のディレクトリ（フォルダ）"]
+		quiz[12]=["カレントディレクトリとは","カレントディレクトリは現在 作業しているディレクトリ（フォルダ）現在 作業しているディレクトリ（フォルダ）"]
+		quiz[13]=["絶対パスとは","絶対パスはその「フォルダが保管してある一番上の階層からすべて書く」というルール"]
+		quiz[14]=["相対パスとは","「表示したいページ」から見て「読み込みたいファイルがどこ」にあるか？を基準にしてパスを記述します。"]
+		quiz[15]=["LANとは","local area network。企業・大学・家庭内で、多面的な情報を処理することのできるコンピュータネットワーク。「社内LAN」「家庭内LAN」などという。LANにはインターネット回線契約者（ネットワーク管理者）が許可したパソコンやインターネット接続機器しか接続できません。"]
+		quiz[16]=["WANとは","Wide Area Network。離れた地点間の通信ネットワーク。通信事業者が設置・運用する回線網。自由に接続可能。インターネットもWANの１つで、世界中のコンピュータ同士が繋がっている。モデムがWANとLANをつなぐ役目"]
+		quiz[16]=["モデムとは","アナログ信号とデジタル信号を相互に変換する機械。WANと家庭との間で情報を送信する装置です。ADSLでインターネットと接続するには、必ずモデムが必要となります。ただし、光回線ではモデムではなく「光回線終端装置」（電気信号を光信号に変換）というものを使います"]
+		quiz[17]=["ルーターとは ","データを転送の「ルート選択機能」を持つ。そのため、道（Route）を指示する者（er）という意味。モデムは１つの機器しか接続することが出来ません。機器の接続は有線と無線の2種類。ルーターはモデムからのデータを仕分けして各パソコンに送り届けるため1つの回線で複数の機器を使えるようにするもの。ルーターとモデムが1つになったもの（ホームゲートウェイ）もある"]
+		quiz[18]=["ADSL回線とは","Asymmetric Digital Subscriber Line（非対称デジタル加入者線）とは電話回線（アナログ）を使ってインターネットに接続する通信サービスインターネットと接続するには、必ずモデムが必要となります。"]
+		quiz[19]=["光回線とは","光回線とは光ファイバーを利用して通信を行う回線のことです。光回線はADSLの20倍以上速く性質上ノイズに影響されにくいため安定した通信となることが特徴。(光ファイバーとは、ガラス素材や樹脂素材に光を反射してデータを送るケーブルのこと。)ADSLは基地局からの距離が遠いと、通信が途切れてしまいますが、光回線は、遠距離でもデータを伝達することができる外での使用は不可。"]
+		quiz[21]=["Wi-Fiとは","「無線LAN」の規格の一種。無線で通信する端末がお互いに問題なく接続可能になる方式の名称。「LANケーブル」が不要。"]
+		quiz[22]=["モバイル回線(Wifiルーター)とは","持ち運びができて、外でも使えるインターネット回線。1人でネットを使うぶんには、屋外でも屋内でも快適にインターネットができます。複数人で使ったり、大容量のネット通信をする人は、動画をみるのも困難になるくらいの速度制限がかかってしまいます。"]
+		quiz[23]=["ケーブルテレビ","テレビ線を利用したインターネット回線。ケーブルテレビ最大のメリットは、テレビプランも契約すれば、テレビ番組のチャンネル数が充実すること。しかし、ケーブルテレビは速通信度が遅く、料金も高い。光回線とスカパーを別契約するほうがお得。"]
+		quiz[24]=["プロバイダ(ISP)とは","インターネット接続事業者。費用は回線工事費と毎月の回線使用料、回線終端装置のレンタル利用料。一体型サービスは回線も同時契約可能。スマホもプロバイダは存在。加入者が多すぎると、回線が混みやすい。"]
+		quiz[25]=["プロトコルとは","Communications protocol（通信プロトコル）コンピューター同士が通信をする際の約束事。双方が理解できる同じプロトコルを使わないと通信は成立しない。"]
+		quiz[26]=["HTTPとは","Hypertext Transfer Protocolとは、HTMLなどのコンテンツの送受信に用いられる通信プロトコルである。主としてWorld Wide Webにおいて、WebブラウザとWebサーバとの間での転送に用いられる。日本標準仕様書ではハイパテキスト転送プロトコルとも呼ばれる。"]
+		quiz[27]=["FTPとは","File Transfer Protocol（ファイル・トランスファー・プロトコル、ファイル転送プロトコル）は、コンピュータネットワーク上のクライアントとサーバの間でファイル転送を行うための通信プロトコルの一つである。"]
+		quiz[28]=["* HTTPSとは","HTTPSHTTPによる通信をより安全に行うためのプロトコルおよびURIスキームである。厳密に言えば、HTTPS自体はプロトコルではなく、SSL/TLSプロトコルによって提供されるセキュアな接続の上でHTTP通信を行うことをHTTPSと呼んでいる。"]
+		quiz[29]=["SSLとは",""]
+		quiz[30]=["SSHとは",""]
+		quiz[31]=["",""]
+
+
+
+
+
+		var count = 0;
+		var q_count = 2;
+		var qu = document.getElementById("question");
+		var an = document.getElementById("answer");
+		var anbt = document.getElementById("anbt");
+		var Qnumber = document.getElementById("Qnumber");
+		var buttons = document.getElementById("buttons");
+		var footer = document.getElementById("inner_footer");
+		var q_number = document.getElementById("q_number");
+		var a_number = document.getElementById("a_number");
+		var start_page = document.getElementById("start_page");
+
+		function start(){
+			start_page.classList.add("an");
+
+		}
+
+		show();
+
+		function show(){
+			qu.innerHTML = quiz[count][0];
+		}
+		function answer(){
+			an.innerHTML = quiz[count][1];
+			buttons.innerHTML = '<button type="button" class="button2" onclick="next()">次へ</button>';
+			footer.innerHTML = '<button type="button" class="back_button" onclick="next()">戻る</button>';
+		}
+
+		function next(){
+			var number = q_count++;
+			q_number.innerHTML = "Q."+ number;
+			a_number.innerHTML = "A."+ number;
+			an.innerHTML = "";
+			count++;
+			show();
+			buttons.innerHTML = '<button type="button" class="button" onclick="answer()">答え</button>';
+		}
+		function back(){
+			count--;
+			show();
+			an.innerHTML = "";
+			buttons.innerHTML = '<button type="button" class="button" onclick="answer()">答え</button>';
+		}
+
+		
+		
+	</script>
+
+	
+</body>
+</html>
