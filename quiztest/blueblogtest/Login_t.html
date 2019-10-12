@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>plactice</title>
+	<link rel="stylesheet" text="css" href="reset.css">
+	<link rel="stylesheet" text="css" href="index.css">
+</head>
+<body>
+		<div class="header">
+				<h1>Login.php</h1>
+			</div>
+				<main>
+			<div class="inner_box">	
+				<div class="box_q">
+					<h2 id="q_number">Q.1</h2>
+					<div id="question"></div>
+				</div>
+				<div class="box_a">
+					<h2 id="a_number">A.1</h2>
+					<div id="answer"></div>
+				</div>
+					<div id="buttons" clss="clearfix">	
+						<button type="button" class="button" onclick="answer()">ANSWER</button>	
+					</div>
+			</div>
+		</main>
+				<footer id="footer">
+						<div id="inner_footer">
+								<button type="button" class="back_button" onclick="back()">戻る</button>
+								<button type="button" class="back_button" onclick="history.back()">ホーム</button>
+								<button type="button" class="back_button" onclick="window.location.reload();">はじめから</button>
+					　　　</div>
+	<script>
+		var quiz = new Array();
+		quiz[0]=["ログインで確認にするものは何か","nameとpassword"];
+		quiz[1]=["ログイン状態保持の為必要になる物は","session"];
+		quiz[2]=["最初に読み込むファイルと次に記述するもの","require_once('db_connect.php');<br>session_start();"];
+		quiz[3]=["その後何と何を確認するか","if (!empty($_POST)の場合でnameとpasswordが空でないか。"];
+		quiz[4]=["登録画面では出さなかったエラーは何か","未入力エラー（名前/パスワードが未入力です。）"]
+		quiz[5]=["ログインする場合セキュリティ面で必要になる対策の名前と記述方法","エスケープ処理<br>$name = htmlspecialchars($_POST['name'], ENT_QUOTES);"]
+		quiz[6]=["ログイン画面のSQL文。まず、何を探すか","SELECT * FROM users WHERE name = :name"]
+		quiz[7]=["その後何を取得し、(出来ない場合の処理)何が確認できたら(出来ない場合の処理)何の値を設定するか。","if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) でnameと合致するレコードを一行取得。<br>できなければelseでecho ユーザー名かパスワードに誤りがあります。<br> できればif (password_verify($pass, $row['password’]))でパスワードを確かめる。<br>できたら$_SESSION['user_id'] = $row['id’]; $_SESSION['user_name'] = $row['name'];<br>でセッションに値を代入する。header('Location: main.php');でメインに遷移。<br>できなければecho 'パスワードに誤りがあります。;<br><br>＊ダブルクォーテーションをクォーテーションにしてます。"]
+		quiz[8]=["また間違えやすい注意点。","header('Location: main.php');の後exit;<br><br>＊ダブルクォーテーションをクォーテーションにしてます。"]
+		
+	</script>
+	<script type="text/javascript" src="test.js"></script>
+
+	
+</body>
+</html>

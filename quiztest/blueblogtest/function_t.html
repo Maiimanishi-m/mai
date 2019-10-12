@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>plactice</title>
+	<link rel="stylesheet" text="css" href="reset.css">
+	<link rel="stylesheet" text="css" href="index.css">
+</head>
+<body>
+	<div class="header">
+		<h1>function.php</h1>
+	</div>
+		<main>
+			<div class="inner_box">	
+				<div class="box_q">
+					<h2 id="q_number">Q.1</h2>
+					<div id="question"></div>
+				</div>
+				<div class="box_a">
+					<h2 id="a_number">A.1</h2>
+					<div id="answer"></div>
+				</div>
+					<div id="buttons" clss="clearfix">	
+						<button type="button" class="button" onclick="answer()">ANSWER</button>	
+					</div>
+			</div>
+		</main>
+		<footer id="footer">
+				<div id="inner_footer">
+						<button type="button" class="back_button" onclick="back()">戻る</button>
+						<button type="button" class="back_button" onclick="history.back()">ホーム</button>
+						<button type="button" class="back_button" onclick="window.location.reload();">はじめから</button>
+			　　　</div>
+		</footer>
+	<script>
+		var quiz = new Array();
+		quiz[0]=["何が記載されているか。関数の数。どのファイルで読み込まれているか。","$_SESSION['user_name']が空だった場合、ログインページにリダイレクトする関数、引数の値が空だった場合、main.phpにリダイレクトする関数、引数で与えられたidでpostsテーブルを検索し、そのidの対象のレコードがなければmain.phpに遷移させる関数の3つ<br><br>＊ダブルクォーテーションをクォーテーションにしてます"];
+		quiz[1]=["Sessionの確認の記載と関数名","function check_user_logged_in() {<br>session_start();<br>if (empty($_SESSION['ser_name'])) {<br>header('Location: login.php');<br> exit;<br> }<br>}"];
+		quiz[2]=["引数の値が空だった場合、main.phpにリダイレクトする関数","function redirect_main_unless_parameter($param) {<br>if (empty($param)) {<br> header('Location: main.php');<br>exit;<br>}<br>}"];
+		quiz[3]=["引数で与えたidでpostsテーブルを検索し、そのid対象のレコードがなければmain.phpに遷移させる関数","function find_post_by_id($id) {<br> $pdo = db_connect();<br>try {<br>$sql = 'SELECT * FROM posts WHERE id = :id';<br>$stmt = $pdo->prepare($sql);<br> $stmt->bindParam('id', $id);<br>$stmt->execute();<br>} catch (PDOException $e) {<br> echo 'Error: ' . $e->getMessage();<br>die();<br>}<br>if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {<br>return $row;<br>} else {<br>redirect_main_unless_parameter($row);<br>}<br>}"];
+		quiz[4]=["DOCコメントとは",""]
+	</script>
+		<script type="text/javascript" src="test.js"></script>
+	
+</body>
+</html>

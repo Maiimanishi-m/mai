@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>plactice</title>
+	<link rel="stylesheet" text="css" href="reset.css">
+	<link rel="stylesheet" text="css" href="index.css">
+</head>
+<body>
+	<div class="header">
+		<h1>database</h1>
+	</div>
+		<main>
+			<div class="inner_box">	
+				<div class="box_q">
+					<h2 id="q_number">Q.1</h2>
+					<div id="question"></div>
+				</div>
+				<div class="box_a">
+					<h2 id="a_number">A.1</h2>
+					<div id="answer"></div>
+				</div>
+					<div id="buttons" clss="clearfix">	
+						<button type="button" class="button" onclick="answer()">ANSWER</button>	
+					</div>
+			</div>
+		</main>
+		<footer id="footer">
+				<div id="inner_footer" class="clearfix">
+						<button type="button" class="back_button" onclick="back()">戻る</button>
+						<button type="button" class="back_button" onclick="history.back()">ホーム</button>
+						<button type="button" class="back_button" onclick="window.location.reload();">はじめから</button>
+			　　　</div>
+		</footer>
+	<script>
+		var quiz = new Array();
+		quiz[0]=["BlueBlogにはいくつテーブルがあるか","users, posts, comment"];
+		quiz[1]=["myaqlにターミナルでログインするコマンド","/Applications/MAMP/Library/bin/mysql -u root -p"];
+		quiz[2]=["データベース作成コマンド","CREATE DATABASE データベース名;"];
+		quiz[3]=["データベース確認コマンド","SHOW DATABASES"];
+		quiz[4]=["データベース選択し使用するコマンド","USE ‘データベース名;"]
+		quiz[5]=["テーブル作成コマンド","CREATE TABLE テーブル名(カラム定義1, カラム定義2, カラム定義3....);"]
+		quiz[6]=["AUTO INCREMENTとは","AUTO_INCREMENT（オートインクリメント）とは、連番を作成するための機能プライマリーキー（主キー）といって、レコードを一意に特定できるカラムAUTO INCREMENTを設定したはいいけど、プライマリーキーを指定してあげないと、テーブルを作成する際にエラーになるので、AUTO INCREMENTを指定する場合は忘れずに末尾につけましょう。"]
+		quiz[7]=["プライマリーキーを指定する際に気をつけること","バッククォートを使いますので間違えてコロンを使わないように。PRIMARY KEY(`id`)"]
+		quiz[8]=["usersテーブルを作成するコマンド","CREATE TABLE users(<br>id INT NOT NULL AUTO_INCREMENT,<br>name VARCHAR( 50),<br>password VARCHAR(255),<br>time TIMESTAMP,<br>PRIMARY KEY(`id`)<br>)DEFAULT CHARSET=utf8;"]
+		quiz[9]=["Postテーブルを作成するコマンド","CREATE TABLE posts (<br>id INT NOT NULL AUTO_INCREMENT,<br>title VARCHAR(50),<br>content VARCHAR(255),<br>time TIMESTAMP,<br>PRIMARY KEY (`id`)<br>)DEFAULT CHARSET=utf8;"]
+		quiz[10]=["commentsテーブルを作成するコマンド","CREATE TABLE comments(<br>id INT NOT NULL AUTO_INCREMENT,<br>post_id INT,<br>name VARCHAR(20),<br>content VARCHAR(225),<br>time TIMESTAMP,PRIMARY KEY (`id`)<br>)DEFAULT CHARSET=utf8;"]
+		quiz[11]=["tableが全部できたか確認するコマンド","SHOW TABLES;"]
+		quiz[12]=["Mysqlを終了する（抜け出す）コマンド","mysql> exit"]
+		quiz[13]=["Mysqlにログインしたあと、データベースを確認するコマンド","show database"]
+		quiz[14]=["データベース選択","select database();"]
+		quiz[15]=["使うデータベースを宣言","Use sql_lesson_1;"]
+		quiz[16]=["決定するでもう一度、","select databese();"]
+		quiz[16]=["テーブル一覧を表示","SHOW TABLES;"]
+		quiz[17]=["テーブルの中身を確認する ","select * from users;"]
+	</script>
+	<script type="text/javascript" src="test.js"></script>
+
+	
+</body>
+</html>

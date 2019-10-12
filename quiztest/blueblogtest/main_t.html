@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>plactice</title>
+	<link rel="stylesheet" text="css" href="reset.css">
+	<link rel="stylesheet" text="css" href="index.css">
+</head>
+<body>
+	<div class="header">
+		<h1>main.php</h1>
+	</div>
+		<main>
+			<div class="inner_box">	
+				<div class="box_q">
+					<h2 id="q_number">Q.1</h2>
+					<div id="question"></div>
+				</div>
+				<div class="box_a">
+					<h2 id="a_number">A.1</h2>
+					<div id="answer"></div>
+				</div>
+					<div id="buttons" clss="clearfix">	
+						<button type="button" class="button" onclick="answer()">ANSWER</button>	
+					</div>
+			</div>
+		</main>
+		<footer id="footer">
+				<div id="inner_footer">
+						<button type="button" class="back_button" onclick="back()">戻る</button>
+						<button type="button" class="back_button" onclick="history.back()">ホーム</button>
+						<button type="button" class="back_button" onclick="window.location.reload();">はじめから</button>
+			　　　</div>
+		</footer>
+	<script>
+		var quiz = new Array();
+		quiz[0]=["メイン画面では何を表示させるか","	ようこそ〇〇さんのpタグと記事投稿のリンクとログアウトのリンク、投稿記事一覧と各記事ごとの詳細、編集、削除リンク"];
+		quiz[1]=["それを表示させるために使うtableタグの中のタグの名称と意味","trタグは行を定義、tdタグはデータを定義"];
+		quiz[2]=["Tableタグで表示させる項目7つ","記事ID、タイトル、本文、投稿日、詳細、編集、削除（id title content time）"];
+		quiz[3]=["まず読み込むファイル２つと利用する関数名とその理由（メインでは立て続けに２つの関数を呼び出します）","db_connect.phpではdb_connect()<br>PDOのインスタンスを利用してMySqlと接続するため<br><br>function.phpではcheck_user_logged_in();<br>ログイン画面でssesionの値が空の場合、ログインページへ遷移させるため"];
+		quiz[4]=["メインページのSQL文","$sql = 'SELECT * FROM posts ORDER BY id DESC';<br><br>＊ダブルクォーテーションをクォーテーションにしてます。"]
+		quiz[5]=["Pタグのようこそ〇〇さんの〇〇ではどの様なphpの記述があるか","pタグでようこその次にPHPを挟む、<br>echo $_SESSION['user_name'];<br><br>＊ダブルクォーテーションをクォーテーションにしてます。"]
+		quiz[6]=["その記述の後、２つのページリンクををaタグで記述しています。（改行あり）記述方法","ログアウトではaタグでlogout.phpへリンク<br>記事投稿！ではaタグでcreate_post.phpへリンク"]
+		quiz[7]=["Tableタグで項目名を表示する記述","trタグで7つのtdを囲う、タイトル、本文、投稿日、のあとは空のtd３つです。"]
+		quiz[8]=["同じTableタグ内で項目の中身を表示する記述をします。まず何をどの様に取得すれば良いか。その後の記述","php文でwhileでの引数($row = $stmt->fetch(PDO::FETCH_ASSOC)) {で行を取得。一度phpを閉じる<br>tdタグ７つ用意して中身はphpで$row['id’];、$row['title']; 、$row['content'];  $row['time']; をecho。<br>後の３つはリンクなのでaタグとphpを組み合わせてedit_post.phpとdelete_post.phpへのidつきリンクを作ります。echoは$row['id’];"]
+	</script>
+	<script type="text/javascript" src="test.js"></script>
+
+	
+</body>
+</html>

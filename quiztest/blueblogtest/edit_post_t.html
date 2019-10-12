@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>plactice</title>
+	<link rel="stylesheet" text="css" href="reset.css">
+	<link rel="stylesheet" text="css" href="index.css">
+</head>
+<body>
+	<div class="header">
+		<h1>edit_post.php</h1>
+	</div>
+		<main>
+			<div class="inner_box">	
+				<div class="box_q">
+					<h2 id="q_number">Q.1</h2>
+					<div id="question"></div>
+				</div>
+				<div class="box_a">
+					<h2 id="a_number">A.1</h2>
+					<div id="answer"></div>
+				</div>
+					<div id="buttons" clss="clearfix">	
+						<button type="button" class="button" onclick="answer()">ANSWER</button>	
+					</div>
+			</div>
+		</main>
+		<footer id="footer">
+				<div id="inner_footer">
+						<button type="button" class="back_button" onclick="back()">戻る</button>
+						<button type="button" class="back_button" onclick="history.back()">ホーム</button>
+						<button type="button" class="back_button" onclick="window.location.reload();">はじめから</button>
+			　　　</div>
+		</footer>
+	<script>
+		var quiz = new Array();
+		quiz[0]=["三点記述","require_once('db_connect.php');<br>require_once('function.php');<br>check_user_logged_in();"];
+		quiz[1]=["edit_done_post.phpと対になるページです。どの様なことをするか","編集する前のものを表示して編集ボタンを押すとedit_done_post.phpで処理が完了します<br>画面はtitleとcontentの表示と枠、編集前の中身です。"];
+		quiz[2]=["formタグのmethod属性とaction属性の値","POSTとedit_done_post.php"];
+		quiz[3]=["メインページの編集ボタンでaタグでどの様なURLを生成しているか","edit_post.phpへのリンクとともにid番号をphpでechoしたもの"];
+		quiz[4]=["メインから飛んだURLの?以降で渡されるIDをキャッチの記述","$id = $_GET['id'];"]
+		quiz[5]=["もし引数の値（ここでは$idの値が空だった場合）メインに跳ね返す関数","redirect_main_unless_parameter($id);"]
+		quiz[6]=["edit_post.phpのSQL文","$sql = 'SELECT * FROM posts WHERE id = :id';<br><br>＊ダブルクォーテーションをクォーテーションにしてます。"]
+		quiz[7]=["idを見つけて$stmtにtyr文で代入されましたその後どうするか","if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {<br>$id = $row['id'];<br>$title = $row['title'];<br>$content = $row['content'];<br>} else {<br>// 対象のidでレコードがない => 不正な画面遷移<br>echo '対象のデータがありません。';<br>}<br><br>＊ダブルクォーテーションをクォーテーションにしてます。"]
+		quiz[8]=["編集前の中身をinputタグでvalueで指定していますがどの様に記載しているか","valueで?php echo $title; ?と<br>valueで?php echo $content;<br>"]
+		quiz[9]=["formタグ最初の方にhiddenで送信しているものとは","valueでphp echo $id;"]
+	</script>
+	<script type="text/javascript" src="test.js"></script>
+
+	
+</body>
+</html>

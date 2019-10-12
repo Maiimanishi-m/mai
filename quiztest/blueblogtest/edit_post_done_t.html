@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>plactice</title>
+	<link rel="stylesheet" text="css" href="reset.css">
+	<link rel="stylesheet" text="css" href="index.css">
+</head>
+<body>
+	<div class="header">
+		<h1>edit_post_done.php</h1>
+	</div>
+		<main>
+			<div class="inner_box">	
+				<div class="box_q">
+					<h2 id="q_number">Q.1</h2>
+					<div id="question"></div>
+				</div>
+				<div class="box_a">
+					<h2 id="a_number">A.1</h2>
+					<div id="answer"></div>
+				</div>
+					<div id="buttons" clss="clearfix">	
+						<button type="button" class="button" onclick="answer()">ANSWER</button>	
+					</div>
+			</div>
+		</main>
+		<footer id="footer">
+				<div id="inner_footer">
+						<button type="button" class="back_button" onclick="back()">戻る</button>
+						<button type="button" class="back_button" onclick="history.back()">ホーム</button>
+						<button type="button" class="back_button" onclick="window.location.reload();">はじめから</button>
+			　　　</div>
+		</footer>
+	<script>
+		var quiz = new Array();
+		quiz[0]=["三点記述","require_once('db_connect.php');<br>require_once('function.php');<br>check_user_logged_in();"];
+		quiz[1]=["edit_post.phpからPOSTで送られてきたものは何か、またそれを変数に代入せよ","$id = $_POST['id'];<br>$title = $_POST['title'];<br>$content = $_POST['content'];<br><br>＊ダブルクォーテーションをクォーテーションにしてます。"];
+		quiz[2]=["edit_post_done.phpのSQL文","$sql = 'UPDATE posts SET title = :title, content = :content WHERE id = :id';<br><br>＊ダブルクォーテーションをクォーテーションにしてます。"];
+		quiz[3]=["bindParamでは３つ値参照を行います。catch文での注意点と記載"," exit('データベース接続失敗。' . $e->getMessage());"];
+		quiz[4]=["h1タグ、pタグ、aタグの記載内容","<h1>編集完了</h1><br> <p>ID: <?php echo $id; ?>を編集しました。</p><br><a href='main.php'>ホームへ戻る</a><br><br>＊ダブルクォーテーションをクォーテーションにしてます。"]
+	</script>
+
+	
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>plactice</title>
+	<link rel="stylesheet" text="css" href="reset.css">
+	<link rel="stylesheet" text="css" href="index.css">
+</head>
+<body>
+	<div class="header">
+		<h1>delete.post.php</h1>
+	</div>
+		<main>
+			<div class="inner_box">	
+				<div class="box_q">
+					<h2 id="q_number">Q.1</h2>
+					<div id="question"></div>
+				</div>
+				<div class="box_a">
+					<h2 id="a_number">A.1</h2>
+					<div id="answer"></div>
+				</div>
+					<div id="buttons" clss="clearfix">	
+						<button type="button" class="button" onclick="answer()">ANSWER</button>	
+					</div>
+			</div>
+		</main>
+		<footer id="footer">
+				<div id="inner_footer">
+						<button type="button" class="back_button" onclick="back()">戻る</button>
+						<button type="button" class="back_button" onclick="history.back()">ホーム</button>
+						<button type="button" class="back_button" onclick="window.location.reload();">はじめから</button>
+			　　　</div>
+		</footer>
+	<script>
+		var quiz = new Array();
+		quiz[0]=["このページにはとあるものがありません。なんでしょう。またその理","htmlの記述、削除したらメインページへ遷移するだけだから。"];
+		quiz[1]=["三文の次の記載、（ヒント：メインページから遷移したものであること）","$id = $_GET['id'];"];
+		quiz[2]=["もし、$idが空であったらmain.phpにリダイレクト","if (empty($id)) {<br> header('Location: main.php');<br>exit;<br>}<br>"];
+		quiz[3]=["delete_post.phpのSQL文","$sql = 'DELETE FROM posts WHERE id = :id';<br><br>＊ダブルクォーテーションをクォーテーションにしてます。"];
+		quiz[4]=["Try文で最後に注意すること","deleatの処理が終わったらすぐメインページに戻すことです。<br>header('Location: main.php');<br> exit;<br><br>＊ダブルクォーテーションをクォーテーションにしてます。"]
+	</script>
+	<script type="text/javascript" src="test.js"></script>
+</body>
+</html>

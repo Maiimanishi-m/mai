@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>plactice</title>
+	<link rel="stylesheet" text="css" href="reset.css">
+	<link rel="stylesheet" text="css" href="index.css">
+</head>
+<body>
+	<div class="header">
+		<h1>create_post.php</h1>
+	</div>
+		<main>
+			<div class="inner_box">	
+				<div class="box_q">
+					<h2 id="q_number">Q.1</h2>
+					<div id="question"></div>
+				</div>
+				<div class="box_a">
+					<h2 id="a_number">A.1</h2>
+					<div id="answer"></div>
+				</div>
+					<div id="buttons" clss="clearfix">	
+						<button type="button" class="button" onclick="answer()">ANSWER</button>	
+					</div>
+			</div>
+		</main>
+		<footer id="footer">
+				<div id="inner_footer">
+						<button type="button" class="back_button" onclick="back()">戻る</button>
+						<button type="button" class="back_button" onclick="history.back()">ホーム</button>
+						<button type="button" class="back_button" onclick="window.location.reload();">はじめから</button>
+			　　　</div>
+		</footer>
+	<script>
+		var quiz = new Array();
+		quiz[0]=["何と何を投稿するか","titleとcontent"];
+		quiz[1]=["記事を書いた時刻も反映されるため私の場合必要な記事とその前の三点記述","require_once('db_connect.php');<br>require_once('function.php');<br>check_user_logged_in();<br>date_default_timezone_set ( 'Asia/Tokyo');<br><br>＊ダブルクォーテーションをクォーテーションにしてます。"];
+		quiz[2]=["何メソッドで何を確かめるか","issetメゾットでpostが押されたか。（セットされたか）"];
+		quiz[3]=["ログインページと同じく未入力エラーを出すが、注意点","//elseif を使うこと。<br>if (empty($_POST['title'])) {<br>echo 'タイトルが未入力です。';<br>} elseif (empty($_POST['content'])) {<br>echo 'コンテンツが未入力です。';<br>}<br><br>＊ダブルクォーテーションをクォーテーションにしてます。"];
+		quiz[4]=["その後の処理","titleとcontentが空でなければ変数に代入する。<br>その後はtry、catch構文でINSERTする。<br>"]
+		quiz[5]=["記事作成ページのSQL文","$sql = 'NSERT INTO posts (title,content) VALUES (:title,:content)';<br><br>＊ダブルクォーテーションをクォーテーションにしてます。"]
+		quiz[6]=["Formタグでtitleとcontentのinputタグには幅と高さのスタイルが記述されています。<br>どの様に記述あるか","style='width:200px;height:50px;'<br><br>＊ダブルクォーテーションをクォーテーションにしてます。"]
+	</script>
+	<script type="text/javascript" src="test.js"></script>
+</body>
+</html>

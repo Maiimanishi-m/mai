@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>plactice</title>
+	<link rel="stylesheet" text="css" href="reset.css">
+	<link rel="stylesheet" text="css" href="index.css">
+</head>
+<body>
+	<div class="header">
+		<h1>signUp.php</h1>
+	</div>
+		<main>
+			<div class="inner_box">	
+				<div class="box_q">
+					<h2 id="q_number">Q.1</h2>
+					<div id="question"></div>
+				</div>
+				<div class="box_a">
+					<h2 id="a_number">A.1</h2>
+					<div id="answer"></div>
+				</div>
+					<div id="buttons" clss="clearfix">	
+						<button type="button" class="button" onclick="answer()">ANSWER</button>	
+					</div>
+			</div>
+		</main>
+		<footer id="footer">
+				<div id="inner_footer">
+						<button type="button" class="back_button" onclick="back()">戻る</button>
+						<button type="button" class="back_button" onclick="history.back()">ホーム</button>
+						<button type="button" class="back_button" onclick="window.location.reload();">はじめから</button>
+			　　　</div>
+		</footer>
+	<script>
+		var quiz = new Array();
+		quiz[0]=["最初に読み込むファイルをどう記述するか","require_once('db_connect.php');<br>＊onceは一度だけという意味。requireもあるがこれは記述があれば何度でも読み込む。"];
+		quiz[1]=["まず、どんなメソッドで何をどう確認するか","issetメゾットを用いて$_POST[signUp]の値がセットされているかを調べる。"];
+		quiz[2]=["登録画面では何を登録するのか、またセキュリティの為の注意点と、その記述方法","nameとpassword。パスワードのハッシュ化を必ず行います。"];
+		quiz[3]=["nameとpasswordの値が空でなければ変数に代入。$password_hash変数ではそれをハッシュ化します。どの様に記述するか。","$password_hash = password_hash($password, PASSWORD_DEFAULT);"];
+		quiz[4]=["登録画面のSQL文","INSERT INTO users (name,password) VALUES (:name,:password)"]
+		quiz[5]=["パラメータ参照の記述方法と間違えやすい点","$stmt->bindParam(':name',$name);<br>パラメータの値は第一引数にコロン付きで記載すること。"]
+		quiz[6]=["登録完了後の注意点","echo '登録が完了しました。';"]
+	
+	</script>
+	<script type="text/javascript" src="test.js"></script>
+	
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>plactice</title>
+	<link rel="stylesheet" text="css" href="reset.css">
+	<link rel="stylesheet" text="css" href="index.css">
+</head>
+<body>
+	<div class="header">
+		<h1>detail_post.php</h1>
+	</div>
+		<main>
+			<div class="inner_box">	
+				<div class="box_q">
+					<h2 id="q_number">Q.1</h2>
+					<div id="question"></div>
+				</div>
+				<div class="box_a">
+					<h2 id="a_number">A.1</h2>
+					<div id="answer"></div>
+				</div>
+					<div id="buttons" clss="clearfix">	
+						<button type="button" class="button" onclick="answer()">ANSWER</button>	
+					</div>
+			</div>
+		</main>
+		<footer id="footer">
+				<div id="inner_footer">
+						<button type="button" class="back_button" onclick="back()">戻る</button>
+						<button type="button" class="back_button"　onclick="location.href=quizplactice.html">ホーム</button>
+			　　　</div>
+		</footer>
+	<script>
+		var quiz = new Array();
+		quiz[0]=["三文の後の記述","$id = $_GET['id'];"];
+		quiz[1]=["Idが入ってなければメインページに戻す関数の呼び出し","redirect_main_unless_parameter($id);"];
+		quiz[2]=["関数から取得した値を格納","$row = find_post_by_id($id);<br>$id = $row['id'];<br>$title = $row['title'];<br>$content = $row['content'];<br>"];
+		quiz[3]=["detail_post.phpのSQL文","$sql_comments = 'SELECT * FROM comments WHERE post_id = :post_id';<br><br>＊ダブルクォーテーションをクォーテーションにしてます。"];
+		quiz[4]=["この記事にコメントするのリンク作り方","a hrefでcreate_comment.php?post_id= PHPで $idをecho"]
+		quiz[5]=["メインページに戻るのリンク作り方","aタグでmain.phpへのリンク"]
+		quiz[6]=["最後にコメントを表示するphp文","divタグで以下のPHP文を囲う<br>while ($row = $stmt_comments->fetch(PDO::FETCH_ASSOC)) で結果が一行取得できたら、hrをechoして$row['name’];をecho、改行して$row['content’];をecho"]
+	</script>
+	<script type="text/javascript" src="test.js"></script>
+
+	
+</body>
+</html>

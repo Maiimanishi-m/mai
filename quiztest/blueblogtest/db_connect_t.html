@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>plactice</title>
+	<link rel="stylesheet" text="css" href="reset.css">
+	<link rel="stylesheet" text="css" href="index.css">
+</head>
+<body>
+	<div class="header">
+		<h1>db_connect.php</h1>
+	</div>
+		<main>
+			<div class="inner_box">	
+				<div class="box_q">
+					<h2 id="q_number">Q.1</h2>
+					<div id="question"></div>
+				</div>
+				<div class="box_a">
+					<h2 id="a_number">A.1</h2>
+					<div id="answer"></div>
+				</div>
+					<div id="buttons" clss="clearfix">	
+						<button type="button" class="button" onclick="answer()">ANSWER</button>	
+					</div>
+			</div>
+		</main>
+		<footer id="footer">
+				<div id="inner_footer">
+						<button type="button" class="back_button" onclick="back()">戻る</button>
+						<button type="button" class="back_button" onclick="history.back()">ホーム</button>
+						<button type="button" class="back_button" onclick="window.location.reload();">はじめから</button>
+			　　　</div>
+		　　</footer>
+	<script>
+		var quiz = new Array();
+		quiz[0]=["PDOのインスタンスを作って変数へ代入せよ","$pdo = new PDO (PDO_DSN,PDO_PASSWORD,PDO_USERNAME);"];
+		quiz[1]=["DSNの指定記述","define('PDO_DSN', 'mysql:host=localhost;charset=utf8;unix_socket=/Applications/MAMP/tmp/mysql/mysql.sock;dbname='.DB_DATABASE);"];
+		quiz[2]=["PDOインスタンスはエラーモードを出力するよう設定せよ。また注意点","$pdo->setAttribute(PDO::ATTR_ERRORMODE,PDO::ERRORMODE_EXCEPTION)"];
+		quiz[3]=["DSNを設定する際文字コードの次に指定しておくもの、私の場合何か。","unix_soket"];
+		quiz[4]=["PHPで定数を宣言する関数","define(定数名,値);"]
+		
+	</script>
+	<script type="text/javascript" src="test.js"></script>
+
+	
+</body>
+</html>
